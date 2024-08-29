@@ -1,0 +1,36 @@
+sudo pacman -S ntfs-3g gnome-disk-utility zsh fzf
+
+// ZSH
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+rm ~/.zshrc ~/.zsh_history; cp "/mnt/Files & Learning/configs/.zshrc" "/mnt/Files & Learning/configs/.zsh_history"  ~; source .zshrc
+
+// GIT
+cp "/mnt/Files & Learning/configs/.gitconfig"  ~
+ssh-keygen -t ed25519 -C "abdonasser865@gmail.com"
+cat .ssh/id_ed25519.pub
+
+// configs
+cp /mnt/Files & Learning/configs/* ~/.config
+
+
+// INSTALLATIONS
+cd ; git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+paru -S nodejs npm obsidian bluemail tmux wezterm smplayer neovim visual-studio-code-bin vscodium-bin postman-bin zen-browser-bin rhythmbox btop discord ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-cascadia-code ttf-cascadia-code-nerd ttf-cascadia-mono-nerd
+
+-- outside kde
+paru -S masterpdfeditor-free thunar gnome-system-monitor kitty redshift 
+
+sudo npm i -g yarn @nestjs/cli typescript tsc ts-node
+sudo pacman -U /mnt/Programs\ \&\ Games/Linux\ Pkgs/docker-desktop-x86_64.pkg.tar.zst
+
+// SYSTEM
+cd /mnt/Files & Learning/configs/fonts/; sudo cp -r Arimo Cousine Tinos Noto_Sans_Arabic /usr/share/fonts/; sudo fc-cache -fv; cd
+
+sudo systemctl enable nvidia-suspend.service nvidia-resume.service nvidia-persistenced.service nvidia-powerd.service
+
+wget https://github.com/mendhak/rhythmbox-tray-icon/raw/master/rhythmbox-tray-icon.zip
+unzip -u rhythmbox-tray-icon.zip -d ~/.local/share/rhythmbox/plugins
