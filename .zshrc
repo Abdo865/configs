@@ -35,6 +35,8 @@ alias push="git push origin"
 alias rstaged="git rm --cached"
 
 alias ll="exa -la -g --icons"
+alias nv="nvim"
+alias nvv="nvim ."
 
 # Key Bindings
 bindkey '^H' backward-kill-word
@@ -42,6 +44,3 @@ bindkey '5~' kill-word
 
 # fzf
 source <(fzf --zsh)
-
-# Created by `pipx` on 2024-08-10 18:20:40
-export PATH="$PATH:/home/abdo/.local/bin"
