@@ -274,16 +274,16 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-# bindsym $mod+w exec --no-startup-id /usr/bin/firefox
-bindsym $mod+w exec --no-startup-id /usr/bin/zen-browser
+bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+# bindsym $mod+w exec --no-startup-id /usr/bin/zen-browser
 
 # bindsym $mod+w exec --no-startup-id vivaldi-stable
 bindsym Mod1+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+shift+s exec --no-startup-id "flameshot gui"
 bindsym $mod+v exec --no-startup-id "xfce4-popup-clipman"
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
-bindsym $mod+c exec --no-startup-id code
-bindsym $mod+Shift+c exec --no-startup-id codium
+bindsym $mod+Shift+c exec --no-startup-id code
+bindsym $mod+c exec --no-startup-id codium
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -318,8 +318,9 @@ assign [class="Vivaldi-stable"] $ws1
 assign [class="Code"] $ws2
 assign [class="VSCodium"] $ws2
 assign [class="wezterm"] $ws3
-assign [class="BlueMail"] $ws4
 assign [class="discord"] $ws4
+assign [class="Mailspring"] $ws4
+
 
 # automatic set focus new window if it opens on another workspace than the current:
 #for_window [class=kitty] focus
@@ -399,7 +400,7 @@ exec_always --no-startup-id autotiling
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xfce4-clipman
-exec --no-startup-id bluemail
+exec --no-startup-id mailspring --password-store="gnome-libsecret"
 exec_always --no-startup-id xbacklight -set 60
 
 ###############
