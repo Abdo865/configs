@@ -28,7 +28,7 @@ sudo npm i -g yarn @nestjs/cli typescript tsc ts-node
 sudo pacman -U /mnt/Programs\ \&\ Games/Linux\ Pkgs/docker-desktop-x86_64.pkg.tar.zst
 
 // SYSTEM
-cd /mnt/Files & Learning/configs/fonts/; sudo cp -r Arimo Cousine Tinos Noto_Sans_Arabic /usr/share/fonts/; sudo fc-cache -fv; cd
+cd "/mnt/Files & Learning/configs/fonts"; sudo cp -r Arimo Cousine Tinos Noto_Sans_Arabic /usr/share/fonts/; sudo fc-cache -fv; cd
 
 sudo systemctl enable nvidia-suspend.service nvidia-resume.service nvidia-persistenced.service nvidia-powerd.service
 
