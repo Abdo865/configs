@@ -18,7 +18,7 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
-			lspconfig.tsserver.setup({})
+			lspconfig.ts_ls.setup({})
 			lspconfig.prismals.setup({})
 			lspconfig.html.setup({})
 			lspconfig.vimls.setup({})
