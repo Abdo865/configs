@@ -265,7 +265,7 @@ bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightnes
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
 # audio control
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause 
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 # Above line will also work for pausing
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
@@ -274,9 +274,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec --no-startup-id /usr/bin/firefox
-# bindsym $mod+w exec --no-startup-id /usr/bin/zen-browser
-
+# bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+bindsym $mod+w exec --no-startup-id /usr/bin/zen-browser
 # bindsym $mod+w exec --no-startup-id vivaldi-stable
 bindsym Mod1+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+shift+s exec --no-startup-id "flameshot gui"
@@ -285,10 +284,12 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 bindsym $mod+Shift+c exec --no-startup-id code
 bindsym $mod+c exec --no-startup-id codium
 
+## Lock Control
+bindsym Control+Mod1+l exec "i3lock -c 000000"
+
 ##########################################
 # configuration for workspace behaviour: #
 ##########################################
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -334,9 +335,9 @@ assign [class="Mailspring"] $ws4
 ##############
 # picom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
-# The default configuration is available in /etc/xdg/picom.conf 
-# start using default config 
-exec_always --no-startup-id picom --config  ~/.config/picom.conf
+# The default configuration is available in /etc/xdg/picom.conf
+# start using default config
+exec_always --no-startup-id picom
 
 #############################################
 # autostart applications/services on login: #
@@ -374,8 +375,8 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 
 # use xautolock to use autosuspend rules for mobile devices
 # https://wiki.archlinux.org/title/Session_lock#xautolock
-#exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
-
+# exec --no-startup-id xautolock -time 3 -locker "systemctl suspend"
+exec "xautolock -detectsleep -time 10 -locker \"i3lock -c 000000\""
 
 # xscreensaver
 # https://www.jwz.org/xscreensaver
@@ -384,8 +385,8 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 # Desktop notifications
 # dunst config used ~/.config/dunst/dunstrc
 # set alternative config if needed:
-#exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
-# may need to run dbus-launch explicitly: 
+exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
+# may need to run dbus-launch explicitly:
 #exec --no-startup-id dbus-launch /usr/bin/dunst
 #exec --no-startup-id /usr/bin/dunst
 # alternative if you installed aside with XFCE4:
@@ -402,6 +403,9 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id mailspring --password-store="gnome-libsecret"
 exec_always --no-startup-id xbacklight -set 60
+
+## Changes keyboard layouy per-window
+exec_always --no-startup-id xkb-switch --i3
 
 ###############
 # system tray #
@@ -438,7 +442,7 @@ for_window [class="urxvt"] border pixel 1
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
-#for_window [class=".*"] resize set 640 480 #to change size of all floating windows 
+#for_window [class=".*"] resize set 640 480 #to change size of all floating windows
 
 # set position of floating window
 #for_window [class=".*"] move position center
@@ -504,7 +508,7 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 #		        separator           $purple
 #		        background          $black
 #		        statusline          $white
-		        
+
 #                                               border 	        bg	        txt		indicator
 #		        focused_workspace	$mediumgrey	$white		$black		$red
 #		        active_workspace	$lightblue      $mediumgrey	$darkgrey	$purple
@@ -540,4 +544,3 @@ bindsym $mod+Shift+d exec --no-startup-id rofi -show window \
 # Polybar #
 ###########
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-

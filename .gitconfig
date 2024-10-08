@@ -1,0 +1,9 @@
+[user]
+	name = Abdo Nasser
+	email = abdonasser865@gmail.com
+[safe]
+	directory = /mnt/files/education/projects/work/node-server
+	directory = /mnt/files/education/projects/work/react-server
+	directory = /mnt/files/cs/projects/work/node-server
+	directory = /mnt/files/cs/projects/work/react-server
+	directory = /mnt/files/cs/projects/practice/disworse
